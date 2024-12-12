@@ -1,14 +1,18 @@
 import { useState } from 'react';
 
-export default function Panel({ title, children }) {
-    const [isActive, setIsActive] = useState(false);
+export default function Panel({
+    title,
+    children,
+    isActive,
+    onShow
+  }) {
     return (
-      <section>
+      <section className="panel">
         <h3>{title}</h3>
         {isActive ? (
           <p>{children}</p>
         ) : (
-          <button onClick={() => setIsActive(true)}>
+          <button onClick={onShow}>
             Show
           </button>
         )}
